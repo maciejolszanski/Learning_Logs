@@ -1,0 +1,5 @@
+# venv files
+ll_env/
+
+# pycache files
+__pycache__/
