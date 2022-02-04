@@ -11,5 +11,8 @@
         <li>Nie został jeszcze dodany żaden temat.</li>
       {% endfor %}
     </u1>
-    
+
+    <p>
+      <a href="{% url 'learning_logs:new_topic' %}">Dodaj nowy temat</a>
+    </p>    
 {% endblock content %}
