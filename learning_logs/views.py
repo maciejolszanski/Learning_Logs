@@ -23,7 +23,7 @@ def topic(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
 
     # Check whether the topic belong to this user
-    _check_topic_owner(request)
+    _check_topic_owner(topic,request)
 
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
@@ -56,7 +56,7 @@ def new_entry(request, topic_id):
 
     topic = Topic.objects.get(id=topic_id)
 
-    _check_topic_owner(request)
+    _check_topic_owner(topic,request)
 
     if request.method != 'POST':
         # Request is probably GET- so create an empty form
@@ -81,7 +81,7 @@ def edit_entry(request, entry_id):
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
 
-    _check_topic_owner(request)
+    _check_topic_owner(topic,request)
 
     if request.method != 'POST':
         # If the method is not POST its probably GET
@@ -95,6 +95,6 @@ def edit_entry(request, entry_id):
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
 
-def _check_topic_owner(req):
-    if topic.owner != req.user:
+def _check_topic_owner(top,req):
+    if top.owner != req.user:
         raise Http404
