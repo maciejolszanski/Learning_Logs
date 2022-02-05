@@ -1,17 +1,24 @@
 {% extends "learning_logs/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+    <p>
+        <h2><a href="{% url 'learning_logs:topic' topic.id %}">
+            {{topic}}
+        </a></h2>
+    </p>
+    <p class="lead">Edycja wpisu:</p>
+{% endblock page_header %}
 
 {% block content %}
 
-    <p>
-        <a href="{% url 'learning_logs:topic' topic.id %}">
-            {{topic}}
-        </a>
-    </p>
-    <p>Edycja wpisu:</p>
-
-    <form action="{% url 'learning_logs:edit_entry' entry.id %}" method='post'>
+    <form action="{% url 'learning_logs:edit_entry' entry.id %}" method='post'
+    class="form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button name='submit'>Zapisz zmiany</button>
+        {% bootstrap_form form %}
+
+        {% buttons %}
+        <button name='submit' class="btn btn-primary">Zapisz zmiany</button>
+        {% endbuttons %}
     </form>
 {% endblock content %}
