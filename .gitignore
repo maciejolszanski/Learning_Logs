@@ -3,3 +3,6 @@ ll_env/
 
 # pycache files
 __pycache__/
+
+# database
+*.sqlite3
