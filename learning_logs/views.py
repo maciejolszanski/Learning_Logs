@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
 from django.contrib.auth.decorators import login_required
@@ -20,7 +20,7 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     '''Display the list of each entry of the topic'''
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
 
     # Check whether the topic belong to this user
     _check_topic_owner(topic,request)
