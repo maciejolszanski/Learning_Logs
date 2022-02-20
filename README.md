@@ -1,4 +1,5 @@
 # Learning_Logs
 Learning django with "Python Crash Course" :D
 
-I am trying to understand how Django works. Keep your fingers crossed!
+You can see my first website on https://learning-log-mol.herokuapp.com
+I enourage you to register and see how it works. I am waiting paitiently to read your feedback :D
