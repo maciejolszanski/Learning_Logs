@@ -1,6 +1,7 @@
 # Learning_Logs
 Learning django with "Python Crash Course" :D
 
+#### Sorry, this link is no longer valid. I had to delete my heroku account due to withdrawal of the heroku free tier :(
 You can see my first website on https://learning-log-mol.herokuapp.com
 I enourage you to register and see how it works. I am waiting paitiently to read your feedback :D
 
